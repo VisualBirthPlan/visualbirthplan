@@ -1,6 +1,12 @@
 <!doctype html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://ogp.me/ns/fb#">
 <head>
+  <meta property="og:title" content="Print Your Free Visual Birth Plan" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://www.VisualBirthPlan.org/img/facebook.png" />
+  <meta property="og:url" content="http://www.VisualBirthPlan.org/" />
+  <meta property="og:site_name" content="Visual Birth Plan.org" /><!--formatted-->
   <link rel="stylesheet" type="text/css" href="style.css"/>
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -9,7 +15,7 @@
     src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
   <script src="script.js"></script>
   <meta charset="utf-8">
-  <title>Print free Visual Birth Plan at VisualBirthPlan.org</title>
+  <title>Print your free Visual Birth Plan at VisualBirthPlan.org</title>
 </head>
 <body  ng-app="VisualBirthPlan" ng-controller="choiceController">
 
@@ -26,7 +32,7 @@
     <br>
 
   </p>
-  <p>Before printing, click on each of the boxes below to change them between <b>Want</b>, <b>Do Not Want</b>, and <b>Don't Care</b>.  Then click the button below to print (preferably in color) your visual birth plan.</p>
+  <p>Before printing, click on each of the boxes below to change them between <b>Yes</b>, <b>No</b>, and <b>Don't Care</b>.  Then print (preferably in color) your visual birth plan.</p>
   <br clear="all">
   <input type="button" value="Print Now - - - This box will not show when printing" onclick="window.print();"> &nbsp;
 
@@ -44,7 +50,7 @@
   <ul class="choices">
     <li ng-repeat="x in choices">
       <div class="box {{x.state}}" ng-click="rotateStates($index, x.state)">
-        <img class="background" src="img/{{x.state}}.png" alt="{{x.state}}">
+        <img class="background" src="img/{{x.state}}75.png" alt="{{x.state}}">
         <div class="symbol" ng-hide="true">
           <p class="key">{{x.code}}</p>
         </div>
