@@ -31,6 +31,10 @@
     <textarea id='intro' ng-model="intro" placeholder="Enter report description">
     {{ intro }}
     </textarea>
+    <!--
+    <input type="checkbox" ng-model="hide_meh">Hide Don't Care boxes<br>
+    <input type="checkbox" ng-model="hide_na">Hide N/A boxes<br>
+    -->
     <br>
 
   </p>
@@ -52,7 +56,7 @@
 
   <ul class="choices">
     <li ng-repeat="x in choices">
-      <div class="box {{x.state}}" ng-click="rotateStates($index, x.state)">
+      <div class="box {{x.state}}" ng-click="rotateStates($index, x.state)" >
         <img class="background" src="img/{{x.state}}75.png" alt="{{x.state}}">
         <div class="symbol" ng-hide="true">
           <p class="key">{{x.code}}</p>

@@ -75,14 +75,14 @@ app.controller("choiceController", function($scope) {
     $scope.intro = intro;
     $scope.rotateStates = function($index, $state) {
         // Cycle through all three states (yes/no/meh)
-        if ($state == 'yes') {
+        if ($state == 'meh') {
+            $scope.choices[$index].state = 'yes';
+        } else if ($state == 'yes') {
             $scope.choices[$index].state = 'no';
         } else if ($state == 'no') {
-            $scope.choices[$index].state = 'meh';
-        } else if ($state == 'meh') {
             $scope.choices[$index].state = 'na';
         } else {
-            $scope.choices[$index].state = 'yes';
+            $scope.choices[$index].state = 'meh';
         }
     }
 
