@@ -5,10 +5,10 @@ intro = "This is our ideal birth plan. We understand that not all labors go acco
 choices = [
     { code:'vd', title:'Vaginal Delivery', state:'meh',
         desc:'Vaginal delivery preferred over C-Section' },
-    { code:'cd', title:'Cesarean Delivery', state:'meh',
+    { code:'cd', title:'Cesarean Delivery', state:'na',
         desc:'Vaginal delivery preferred over C-Section' },
-    { code:'nb', title:'Natural Birth', state:'meh' },
-    { code:'wb', title:'Water Birth', state:'meh' },
+    { code:'nb', title:'Natural Birth', state:'yes' },
+    { code:'wb', title:'Water Birth', state:'no' },
     { code:'vb', title:'VBAC', state:'meh' },
     { code:'ep', title:'Epidural', state:'meh' },
     { code:'ub', title:'Un-medicated Birth', state:'meh' },
@@ -79,6 +79,8 @@ app.controller("choiceController", function($scope) {
             $scope.choices[$index].state = 'no';
         } else if ($state == 'no') {
             $scope.choices[$index].state = 'meh';
+        } else if ($state == 'meh') {
+            $scope.choices[$index].state = 'na';
         } else {
             $scope.choices[$index].state = 'yes';
         }

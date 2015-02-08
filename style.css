@@ -111,5 +111,10 @@ img {
         display: none !important;
     }
 
+    /* don't print Don't Care, N/A values */ /*
+    .meh, .na {
+        display: none !important;
+    }
+    */
 
 }
