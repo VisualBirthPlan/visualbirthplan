@@ -100,6 +100,10 @@ img {
     page-break-inside: avoid; /* or 'auto' */
 }
 
+.webmaster {
+  float: right;
+}
+
 @media print
 {
     .no-print, .no-print *
