@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <script
+    src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="script.js"></script>
+  <meta charset="utf-8">
+  <title>Print free Visual Birth Plan at VisualBirthPlan.org</title>
+</head>
+<body  ng-app="VisualBirthPlan" ng-controller="choiceController">
+
+<div class="settings no-print">
+  <h2>Personalize your Visual Birth Plan</h2>
+  <h3>(this box will not show when printing)</h3>
+  <p>
+    Your Name: <input ng-model="name" placeholder="Enter Your Name"><br>
+    Your Provider: <input ng-model="provider" placeholder="Enter Provider Name"><br>
+    Plan Introduction: (you can use html)
+    <textarea id='intro' ng-model="intro" placeholder="Enter report description">
+    {{ intro }}
+    </textarea>
+    <br>
+
+  </p>
+  <br clear="all">
+  <input type="button" value="Print Now - - - This box will not show when printing" onclick="window.print();"> &nbsp;
+
+
+</div>
+
+
+
+  <h1 ng-hide="!name">{{ name }}'s Visual Birth Plan</h1>
+
+  <h2 ng-hide="!provider">for {{ provider }}</h2>
+
+  <p>{{ intro }}</p>
+
+  <ul class="choices">
+    <li ng-repeat="x in choices">
+      <div class="box {{x.state}}" ng-click="rotateStates($index, x.state)">
+        <img class="background" src="img/{{x.state}}.png" alt="{{x.state}}">
+        <div class="symbol" ng-hide="true">
+          <p class="key">{{x.code}}</p>
+        </div>
+        <div class="description">
+          <p class="title">{{x.title}}</p>
+          <p class="subtitle">{{x.subtitle}}</p>
+          <p class="desc">{{x.desc}}</p>
+        </div>
+        {{x.subtitle}}
+      </div>
+    </li>
+  </ul>
+
+<h4>Print your own for free from</h4>
+<h3>VisualBirthPlan.org</h3>
+
+  <hr>
+
+
+
+</body>
+</html>
