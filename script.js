@@ -1,4 +1,4 @@
-var app = angular.module("VisualBirthPlan", []);
+var app = angular.module("VisualBirthPlan", ['ui.sortable']);
 
 intro = "This is our ideal birth plan. We understand that not all labors go according to plan, and that we may need to change from this plan based on medical neccessity as things progress. This is our wishlist for an ideal experience for us. If you can help us achieve as much of these as possible, we appreciate it.";
 
@@ -13,6 +13,8 @@ choices = [
     { code:'ep', title:'Epidural', state:'meh' },
     { code:'ub', title:'Un-medicated Birth', state:'meh' },
     { code:'om', title:'Other Medication', state:'meh' },
+    { code:'si', title:'Scheduled Induction', state:'meh' },
+    { code:'sc', title:'Scheduled Cesarean', state:'meh' },
     { code:'pi', title:'Pitocin Induction', state:'meh' },
     { code:'pl', title:'Pitocin During Labor', state:'meh' },
     { code:'sm', title:'Sweep Membranes', state:'meh' },
@@ -20,9 +22,11 @@ choices = [
     { code:'bw', title:'Episiotomy', state:'meh' },
     { code:'pa', title:'Pitocin After Birth', state:'meh' },
     { code:'pm', title:'Pain Medication', state:'meh' },
-    { code:'fw', title:'Food & Water (not just IV)', subtitle:'Preferred to IV', state:'meh' },
+    { code:'fw', title:'Food & Water (not just IV)', state:'meh' },
     { code:'iv', title:'IV Fluids', state:'meh' },
     { code:'mu', title:'Music', state:'meh' },
+    { code:'la', title:'Latex Allergy', state:'meh' },
+    { code:'la', title:'Medicine Allergies', state:'meh' },
     { code:'af', title:'Allergen-Free Environment', state:'meh' },
     { code:'fm', title:'Fetal Monitoring', state:'meh' },
     { code:'wf', title:'Wireless Fetal Monitoring', state:'meh' },
@@ -66,7 +70,7 @@ choices = [
     { code:'vb', title:'Visitors During Birth', state:'meh' },
     { code:'va', title:'Visitors After Birth', state:'meh' },
     { code:'cb', title:'Save Cord Blood', state:'meh' },
-    { code:'fr', title:'Filming/Recording Birth', state:'meh' },
+    { code:'fr', title:'Video Birth', state:'meh' },
 
 ];
 
@@ -86,4 +90,12 @@ app.controller("choiceController", function($scope) {
         }
     }
 
+});
+
+$('ul').draggable({
+    stop: function(event, ui) {
+        // event.toElement is the element that was responsible
+        // for triggering this event. The handle, in case of a draggable.
+        $( event.toElement ).one('click', function(e){ e.stopImmediatePropagation(); } );
+    }
 });
